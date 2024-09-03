@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Api.Contracts.UserEndpoints;
+using TaskManagement.Api.Contracts.UsersEndpoints;
 using TaskManagement.Domain.Interfaces.Services;
 
 namespace TaskManagement.Api.Controllers
@@ -13,7 +13,8 @@ namespace TaskManagement.Api.Controllers
         {
             _usersService = usersService;
         }
-        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost("register")]
@@ -23,7 +24,7 @@ namespace TaskManagement.Api.Controllers
             return Ok();
         }
 
-        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -33,7 +34,7 @@ namespace TaskManagement.Api.Controllers
             var token = await _usersService.Login(request.Email, request.Password);
             if (token == null)
             {
-                return BadRequest();
+                return BadRequest("Invalid password.");
             }
             return Ok(token);
         }

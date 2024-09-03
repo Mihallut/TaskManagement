@@ -22,5 +22,15 @@ namespace TaskManagement.Infrastructure.Repositories
         {
             return await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Email == email);
         }
+
+        public bool UserExistsByEmail(string email)
+        {
+            return _context.Users.Any(u => u.Email == email);
+        }
+
+        public bool UserExistsByUsername(string username)
+        {
+            return _context.Users.Any(u => u.Username == username);
+        }
     }
 }
