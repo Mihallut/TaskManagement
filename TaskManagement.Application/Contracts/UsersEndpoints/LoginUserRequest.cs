@@ -1,4 +1,4 @@
-﻿namespace TaskManagement.Api.Contracts.UsersEndpoints
+﻿namespace TaskManagement.Application.Contracts.UsersEndpoints
 {
     public record LoginUserRequest
     {

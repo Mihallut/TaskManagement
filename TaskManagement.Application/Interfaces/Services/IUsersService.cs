@@ -1,5 +1,5 @@
 ﻿
-namespace TaskManagement.Domain.Interfaces.Services
+namespace TaskManagement.Application.Interfaces.Services
 {
     public interface IUsersService
     {

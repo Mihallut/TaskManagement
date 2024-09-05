@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Api.Contracts.UsersEndpoints;
-using TaskManagement.Domain.Interfaces.Services;
+using TaskManagement.Application.Contracts.UsersEndpoints;
+using TaskManagement.Application.Interfaces.Services;
 
 namespace TaskManagement.Api.Controllers
 {

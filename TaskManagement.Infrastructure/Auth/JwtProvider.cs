@@ -3,8 +3,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using TaskManagement.Application.Interfaces.Auth;
 using TaskManagement.Domain.Entities;
-using TaskManagement.Domain.Interfaces.Auth;
 
 namespace TaskManagement.Infrastructure.Auth
 {

@@ -6,11 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using TaskManagement.Api.Middlewares;
-using TaskManagement.Api.Validators.UsersEndpoints;
+using TaskManagement.Application;
+using TaskManagement.Application.Interfaces.Auth;
+using TaskManagement.Application.Interfaces.Repositories;
+using TaskManagement.Application.Interfaces.Services;
 using TaskManagement.Application.Services;
-using TaskManagement.Domain.Interfaces.Auth;
-using TaskManagement.Domain.Interfaces.Repositories;
-using TaskManagement.Domain.Interfaces.Services;
+using TaskManagement.Application.Validators.UsersEndpoints;
 using TaskManagement.Infrastructure;
 using TaskManagement.Infrastructure.Auth;
 using TaskManagement.Infrastructure.Repositories;
@@ -77,15 +78,18 @@ namespace TaskManagement.Api
                     options.UseNpgsql(connectionString));
 
             builder.Services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
-
             builder.Services.AddScoped<IJwtProvider, JwtProvider>();
             builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
             builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+            builder.Services.AddScoped<ITasksRepository, TasksRepository>();
 
             builder.Services.AddScoped<IUsersService, UsersService>();
+            builder.Services.AddScoped<ITasksService, TasksService>();
 
             builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
+
+            builder.Services.AddApplication();
 
             var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using TaskManagement.Domain.Interfaces.Auth;
+﻿using TaskManagement.Application.Interfaces.Auth;
 
 namespace TaskManagement.Infrastructure.Auth
 {

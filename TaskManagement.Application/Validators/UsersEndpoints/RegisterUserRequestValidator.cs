@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using TaskManagement.Api.Contracts.UsersEndpoints;
-using TaskManagement.Domain.Interfaces.Repositories;
+using TaskManagement.Application.Contracts.UsersEndpoints;
+using TaskManagement.Application.Interfaces.Repositories;
 
-namespace TaskManagement.Api.Validators.UsersEndpoints
+namespace TaskManagement.Application.Validators.UsersEndpoints
 {
     public class RegisterUserRequestValidator : AbstractValidator<RegisterUserRequest>
     {

@@ -1,6 +1,6 @@
 ﻿using TaskManagement.Domain.Entities;
 
-namespace TaskManagement.Domain.Interfaces.Auth
+namespace TaskManagement.Application.Interfaces.Auth
 {
     public interface IJwtProvider
     {

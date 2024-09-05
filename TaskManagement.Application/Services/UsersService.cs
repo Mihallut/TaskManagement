@@ -1,7 +1,7 @@
-﻿using TaskManagement.Domain.Entities;
-using TaskManagement.Domain.Interfaces.Auth;
-using TaskManagement.Domain.Interfaces.Repositories;
-using TaskManagement.Domain.Interfaces.Services;
+﻿using TaskManagement.Application.Interfaces.Auth;
+using TaskManagement.Application.Interfaces.Repositories;
+using TaskManagement.Application.Interfaces.Services;
+using TaskManagement.Domain.Entities;
 
 namespace TaskManagement.Application.Services
 {
